@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delish Dine | Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #fff; color: #333;
+      overflow-x: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 2; transform: translateY(0); }
+    }
+
+    header {
+      background: #111; color: #fff;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center/cover;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 10px;
+      animation: flipIn 1s ease-in-out;
+    }
+
+    @keyframes flipIn {
+      0% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+      }
+      100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+      }
+    }
+      
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-item {
+      perspective: 1000px;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      cursor: pointer;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .card-front {
+      background: #f9f9f9;
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-front .info {
+      padding: 15px;
+    }
+
+    .card-back {
+      background: #f39c12;
+      color: #fff;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .contact, .booking {
+      background: #f3f3f3;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #f39c12;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d35400;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Delish Dine</h1>
+    <nav>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking">Book Table</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Welcome to Delish Dine – Taste the Magic!</h1>
+  </div>
+
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="pizza.jpg" alt="Pizza">
+            <div class="info">
+              <h4>Margherita Pizza</h4>
+              <p>Classic delight with fresh mozzarella and basil.</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Freshly baked with tomato sauce, cheese, and Italian herbs!</p>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="burger.jpg" alt="Burger">
+            <div class="info">
+              <h4>Cheesy Burger</h4>
+              <p>Grilled to perfection with cheddar and lettuce.</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Juicy beef patty, melted cheese, and crispy veggies inside!</p>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="pasta.jpg" alt="Pasta">
+            <div class="info">
+              <h4>Alfredo Pasta</h4>
+              <p>Creamy white sauce with fettuccine pasta.</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Rich creamy Alfredo sauce with parmesan and garlic!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>Book a Table</h2>
+    <div class="booking">
+      <form>
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="date" required />
+        <input type="time" required />
+        <input type="number" placeholder="No. of Guests" required />
+        <button type="submit">Reserve Now</button>
+      </form>
+    </div>
+  </section>
+
+    <footer>
+    <p>&copy; 2025 Delish Dine | All Rights Reserved</p>
+    <div style="margin-top: 20px;">
+      <p><strong>Address:</strong> 123 Flavor Street, Foodville, India</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Email:</strong> support@delishdine.com</p>
+      <div style="margin-top: 10px;">
+        <p>
+          <a href="#" style="color: #f39c12; text-decoration: none;">Instagram</a> |
+          <a href="#" style="color: #f39c12; text-decoration: none;">Facebook</a> |
+          <a href="#" style="color: #f39c12; text-decoration: none;">Twitter</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Flip card on click
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
+</body>
+</html>
