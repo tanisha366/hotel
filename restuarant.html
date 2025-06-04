@@ -19,7 +19,7 @@
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 2; transform: translateY(0); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     header {
@@ -28,6 +28,13 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+    }
+
+    header h1 {
+      text-align: center;
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
 
     nav ul {
@@ -49,7 +56,7 @@
     }
 
     .hero {
-      background: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') no-repeat center/cover;
+      background: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
       height: 90vh;
       display: flex;
       align-items: center;
@@ -102,7 +109,7 @@
     .card {
       position: relative;
       width: 100%;
-      height: 260px;
+      height: 300px;
       transform-style: preserve-3d;
       transition: transform 0.8s;
       cursor: pointer;
@@ -124,16 +131,43 @@
 
     .card-front {
       background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
     }
 
     .card-front img {
       width: 100%;
-      height: 160px;
+      height: 180px;
       object-fit: cover;
+      border-bottom: 1px solid #ddd;
     }
 
     .card-front .info {
       padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-front .info h4 {
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      color: #111;
+    }
+
+    .card-front .info p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .info .price {
+      margin-top: 10px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #f39c12;
     }
 
     .card-back {
@@ -145,12 +179,17 @@
       justify-content: center;
       padding: 20px;
       text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
     }
 
     .contact, .booking {
       background: #f3f3f3;
       border-radius: 12px;
       padding: 30px;
+      max-width: 600px;
+      margin: auto;
     }
 
     form {
@@ -165,12 +204,17 @@
       font-size: 1rem;
     }
 
+    textarea {
+      resize: vertical;
+    }
+
     button {
       background: #f39c12;
       color: #fff;
       font-weight: bold;
       border: none;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
 
     button:hover {
@@ -182,6 +226,10 @@
       padding: 20px;
       background: #111;
       color: #fff;
+    }
+
+    footer p {
+      margin: 5px 0;
     }
 
     @media (max-width: 768px) {
@@ -209,13 +257,15 @@
   <section id="menu">
     <h2>Our Menu</h2>
     <div class="menu-grid">
+      <!-- Menu Item 1 -->
       <div class="menu-item">
         <div class="card">
           <div class="card-front">
-            <img src="pizza.jpg" alt="Pizza">
+            <img src="pizza.jpg" alt="Margherita Pizza" />
             <div class="info">
               <h4>Margherita Pizza</h4>
               <p>Classic delight with fresh mozzarella and basil.</p>
+              <p class="price">₹299</p>
             </div>
           </div>
           <div class="card-back">
@@ -223,13 +273,16 @@
           </div>
         </div>
       </div>
+
+      <!-- Menu Item 2 -->
       <div class="menu-item">
         <div class="card">
           <div class="card-front">
-            <img src="burger.jpg" alt="Burger">
+            <img src="burger.jpg" alt="Cheesy Burger" />
             <div class="info">
               <h4>Cheesy Burger</h4>
               <p>Grilled to perfection with cheddar and lettuce.</p>
+              <p class="price">₹199</p>
             </div>
           </div>
           <div class="card-back">
@@ -237,17 +290,105 @@
           </div>
         </div>
       </div>
+
+      <!-- Menu Item 3 -->
       <div class="menu-item">
         <div class="card">
           <div class="card-front">
-            <img src="pasta.jpg" alt="Pasta">
+            <img src="pasta.jpg" alt="Alfredo Pasta" />
             <div class="info">
               <h4>Alfredo Pasta</h4>
               <p>Creamy white sauce with fettuccine pasta.</p>
+              <p class="price">₹349</p>
             </div>
           </div>
           <div class="card-back">
             <p>Rich creamy Alfredo sauce with parmesan and garlic!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Item 4 -->
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="salad.jpg" alt="Caesar Salad" />
+            <div class="info">
+              <h4>Caesar Salad</h4>
+              <p>Crisp romaine lettuce with parmesan and croutons.</p>
+              <p class="price">₹249</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Fresh and healthy with creamy Caesar dressing!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Item 5 -->
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="cake.jpg" alt="Chocolate Cake" />
+            <div class="info">
+              <h4>Chocolate Cake</h4>
+              <p>Rich and moist dark chocolate layered cake.</p>
+              <p class="price">₹199</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Decadent dessert with silky chocolate frosting!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Item 6 -->
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="grill.jpg" alt="Grilled Salmon" />
+            <div class="info">
+              <h4>Grilled Salmon</h4>
+              <p>Perfectly grilled salmon with herbs and lemon.</p>
+              <p class="price">₹499</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Fresh fish grilled to perfection with zesty flavor!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Item 7 -->
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="bolo.jpg" alt="Spaghetti Bolognese" />
+            <div class="info">
+              <h4>Spaghetti Bolognese</h4>
+              <p>Traditional Italian pasta with rich meat sauce.</p>
+              <p class="price">₹379</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Slow-cooked beef in tomato sauce served over spaghetti!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Item 8 -->
+      <div class="menu-item">
+        <div class="card">
+          <div class="card-front">
+            <img src="tikka.jpg" alt="Chicken Tikka" />
+            <div class="info">
+              <h4>Chicken Tikka</h4>
+              <p>Spiced grilled chicken chunks, a popular Indian delight.</p>
+              <p class="price">₹299</p>
+            </div>
+          </div>
+          <div class="card-back">
+            <p>Marinated chicken grilled to smoky perfection!</p>
           </div>
         </div>
       </div>
@@ -274,13 +415,13 @@
         <input type="email" placeholder="Email" required />
         <input type="date" required />
         <input type="time" required />
-        <input type="number" placeholder="No. of Guests" required />
+        <input type="number" placeholder="No. of Guests" required min="1" />
         <button type="submit">Reserve Now</button>
       </form>
     </div>
   </section>
 
-    <footer>
+  <footer>
     <p>&copy; 2025 Delish Dine | All Rights Reserved</p>
     <div style="margin-top: 20px;">
       <p><strong>Address:</strong> 123 Flavor Street, Foodville, India</p>
@@ -304,5 +445,7 @@
       });
     });
   </script>
+
 </body>
 </html>
+
